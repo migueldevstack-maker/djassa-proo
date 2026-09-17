@@ -12,26 +12,22 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
+  viewportFit: "cover",
   themeColor: "#059669",
 };
 
 export const metadata: Metadata = {
   title: "Djassa Pro CI | Services de proximité & Entraide des jeunes en Côte d'Ivoire",
-  description:
-    "Trouvez rapidement un jeune prestataire qualifié et vérifié à Abidjan (Cocody, Yopougon, Koumassi...) pour la plomberie, électricité, coiffure, dépannage et ménage.",
+  description: "Trouvez rapidement un jeune prestataire qualifié et vérifié à Abidjan.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fr" className="scroll-smooth">
-      <body className={`${inter.className} min-h-screen flex flex-col`}>
+      <body className={`${inter.className} flex min-h-screen flex-col`}>
         <ToastProvider>
           <Navbar />
-          <main className="flex-1 pb-16 md:pb-0">{children}</main>
+          <main className="min-w-0 flex-1 pb-20 md:pb-0">{children}</main>
           <Footer />
           <MobileNav />
         </ToastProvider>
