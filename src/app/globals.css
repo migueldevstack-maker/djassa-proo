@@ -20,10 +20,11 @@
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
-  /* Évite le zoom automatique d'iOS sur les champs de formulaire. */
   input,
   textarea,
   select {
+    max-width: 100%;
+    min-width: 0;
     font-size: 16px;
   }
 
@@ -64,6 +65,96 @@
     overflow-x: auto;
     overscroll-behavior-x: contain;
     scrollbar-width: thin;
+  }
+}
+
+/* Base responsive rules shared by the home page, directory and dashboards. */
+@media (max-width: 639px) {
+  main {
+    overflow-x: clip;
+  }
+
+  main form {
+    max-width: 100%;
+  }
+
+  /* Long form rows become single-column before the sm breakpoint. */
+  main form .grid.grid-cols-2 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Prevent long status labels and action groups from widening cards. */
+  main button,
+  main a {
+    max-width: 100%;
+  }
+
+  main button > span,
+  main a > span {
+    min-width: 0;
+  }
+
+  /* Comfortable mobile cards without wasting horizontal space. */
+  main .rounded-3xl {
+    border-radius: 1.25rem;
+  }
+
+  /* Admin actions and dashboard controls can wrap instead of overflowing. */
+  main .flex.items-center.justify-end,
+  main .flex.items-center.justify-between {
+    min-width: 0;
+    flex-wrap: wrap;
+  }
+
+  /* Make document previews usable on narrow phones. */
+  main iframe,
+  main img {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 479px) {
+  /* Compact typography and gutters for 320–479px devices. */
+  main h1 {
+    overflow-wrap: anywhere;
+    font-size: clamp(1.35rem, 7vw, 1.75rem);
+    line-height: 1.15;
+  }
+
+  main h2 {
+    overflow-wrap: anywhere;
+  }
+
+  main > div,
+  main section {
+    max-width: 100%;
+  }
+
+  /* Keep form cards compact on very small screens. */
+  main form input,
+  main form select,
+  main form textarea {
+    min-height: 2.75rem;
+  }
+
+  /* Avoid long CTA labels being clipped on 320px screens. */
+  main button,
+  main a {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  /* Bottom navigation has four equal touch targets on narrow screens. */
+  nav[aria-label="Navigation mobile"] a {
+    min-width: 0;
+    flex: 1 1 0%;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+
+  footer nav a {
+    min-height: 2.75rem;
+    padding: 0 0.25rem;
   }
 }
 
