@@ -39,7 +39,13 @@ export const Footer = () => {
               <Code2 className="h-3 w-3" />
               <span>
                 Conçu &amp; développé par{" "}
-                <span className="font-semibold text-emerald-600">Bakayoko Sory</span>
+                <p style={{ fontFamily: 'Georgia, "Brush Script MT", cursive', fontSize: '14px' }}>
+  Conçu par <a href="https://portfolio-gules-six-86.vercel.app/" target="_blank" rel="noopener noreferrer" style={{ color: 'green', textDecoration: 'none' }}>Bakayoko Sory</a>
+</p>
+                <br>
+                <p style={{ fontFamily: 'Georgia, "Brush Script MT", cursive', fontSize: '14px' }}>
+  Conçu par <a href="https://miguel-the-dev.vercel.app/" target="_blank" rel="noopener noreferrer" style={{ color: 'blue', textDecoration: 'none' }}>Miguel Koffi</a>
+</p>
               </span>
             </div>
           </div>
